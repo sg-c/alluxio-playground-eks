@@ -1,0 +1,17 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: alluxio-demo
+  region: us-east-1
+
+nodeGroups:
+  - name: ng-1
+    instanceType: m5.4xlarge
+    desiredCapacity: 1
+    volumeSize: 200
+    ssh:
+      # will use ~/.ssh/id_rsa.pub as the default ssh key
+      # and ssh to the ec2 node with `ssh ec2-user@EXTERNAL-IP`
+      # EXTERNAL-IP can be obtained from `kubectl get nodes -o wide`
+      allow: true 
